@@ -45,8 +45,8 @@ class Zoho
             'apiVersion'             => config('zoho.api_version'),
             'access_type'            => config('zoho.access_type'),
             'accounts_url'           => config('zoho.accounts_url'),
-            //            'persistence_handler_class' => config('zoho.persistence_handler_class'),
-            //            'persistence_handler_class_name' => config('zoho.persistence_handler_class_name'),
+            'persistence_handler_class' => config('zoho.persistence_handler_class'),
+            'persistence_handler_class_name' => config('zoho.persistence_handler_class_name'),
             'token_persistence_path' => config('zoho.token_persistence_path'),
             //            'fileUploadUrl' => config('zoho.file_upload_url'),
         ], $options);
