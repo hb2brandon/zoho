@@ -7,12 +7,13 @@ use zcrmsdk\oauth\ZohoOAuth;
 use Illuminate\Routing\Controller;
 use zcrmsdk\crm\setup\restclient\ZCRMRestClient;
 use Asciisd\Zoho\Http\Requests\ZohoRedirectRequest;
+use App\Classes\ZohoOptions;
 
 class ZohoController extends Controller
 {
     public function oauth2callback(ZohoRedirectRequest $request)
     {
-        ZCRMRestClient::initialize(Zoho::zohoOptions());
+        ZCRMRestClient::initialize(ZohoOptions::zohoOptions());
         $oAuthClient = ZohoOAuth::getClientInstance();
         $oAuthClient->generateAccessToken($request->code);
 
