@@ -54,6 +54,11 @@ class ZohoServiceProvider extends ServiceProvider
             ], function () {
                 $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
             });
+            Route::group([
+                'prefix' => config('zohoRX.path'), 'namespace' => 'Asciisd\Zoho\Http\Controllers', 'as' => 'zohoRX.',
+            ], function () {
+                $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
+            });
         }
     }
 
