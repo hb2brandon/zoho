@@ -13,7 +13,7 @@ class ZohoAuthentication extends Command
      *
      * @var string
      */
-    protected $signature = 'zoho:authentication';
+    protected $signature = 'zoho:authentication {--config=zoho}';
 
     /**
      * The console command description.
@@ -39,12 +39,12 @@ class ZohoAuthentication extends Command
      */
     public function handle()
     {
-        $client_id     = config('zoho.client_id');
-        $client_domain = config('app.url').'/zoho/oauth2callback';
-        $scope         = config('zoho.oauth_scope');
+        $client_id     = config($this->option('config') . '.client_id');
+        $client_domain = config($this->option('config') . '.redirect_uri');
+        $scope         = config($this->option('config') . '.oauth_scope');
         $prompt        = 'consent';
         $response_type = 'code';
-        $access_type   = config('zoho.access_type');
+        $access_type   = config($this->option('config') . '.access_type');
 
         $redirect_url = "https://accounts.zoho.com/oauth/v2/auth?scope={$scope}&prompt={$prompt}&client_id={$client_id}&response_type={$response_type}&access_type={$access_type}&redirect_uri={$client_domain}";
 //{{accounts_url}}/oauth/v2/token?grant_type=authorization_code&client_id={{client_id}}&client_secret={{client_secret}}&redirect_uri={{redirect_uri}}&code=1000.2ba87e1464afc3ba9042acb90f4c196d.971662a877b2aa7470642ce244c41055
