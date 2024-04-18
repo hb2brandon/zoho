@@ -19,4 +19,13 @@ class ZohoController extends Controller
 
         return 'Zoho CRM has been set up successfully.';
     }
+
+    public function oauth2callback(ZohoRedirectRequest $request)
+    {
+        ZCRMRestClient::initialize(ZohoOptions::zohoOptions('zohoRX'));
+        $oAuthClient = ZohoOAuth::getClientInstance();
+        $oAuthClient->generateAccessToken($request->code);
+
+        return 'Zoho CRM has been set up successfully.';
+    }
 }
