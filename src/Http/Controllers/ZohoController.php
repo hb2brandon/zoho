@@ -22,7 +22,7 @@ class ZohoController extends Controller
 
     public function oauth2callbackRX(ZohoRedirectRequest $request)
     {
-        ZCRMRestClient::initialize(ZohoOptions::zohoOptions('zohoRX'));
+        ZCRMRestClient::initialize(ZohoOptions::zohoOptions([], 'zohoRX'));
         $oAuthClient = ZohoOAuth::getClientInstance();
         $oAuthClient->generateAccessToken($request->code);
 
