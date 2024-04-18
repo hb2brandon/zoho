@@ -52,12 +52,12 @@ class ZohoServiceProvider extends ServiceProvider
             Route::group([
                 'prefix' => config('zoho.path'), 'namespace' => 'Asciisd\Zoho\Http\Controllers', 'as' => 'zoho.',
             ], function () {
-                $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
+                Route::get('oauth2callback', 'ZohoController@oauth2callback');
             });
             Route::group([
                 'prefix' => config('zohoRX.path'), 'namespace' => 'Asciisd\Zoho\Http\Controllers', 'as' => 'zohoRX.',
             ], function () {
-                $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
+                Route::get('oauth2callback', 'ZohoController@oauth2callbackRX');
             });
         }
     }
