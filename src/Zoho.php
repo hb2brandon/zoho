@@ -32,23 +32,23 @@ class Zoho
      *
      * @return array
      */
-    public static function zohoOptions(array $options = [])
+    public static function zohoOptions(array $options = [], $configKey = 'zoho')
     {
         return array_merge([
-            'client_id'              => config('zoho.client_id'),
-            'client_secret'          => config('zoho.client_secret'),
-            'redirect_uri'           => config('zoho.redirect_uri'),
-            'currentUserEmail'       => config('zoho.current_user_email'),
-            'applicationLogFilePath' => config('zoho.application_log_file_path'),
-            'sandbox'                => config('zoho.sandbox'),
-            'apiBaseUrl'             => config('zoho.api_base_url'),
-            'apiVersion'             => config('zoho.api_version'),
-            'access_type'            => config('zoho.access_type'),
-            'accounts_url'           => config('zoho.accounts_url'),
-            'persistence_handler_class' => config('zoho.persistence_handler_class'),
-            'persistence_handler_class_name' => config('zoho.persistence_handler_class_name'),
-            'token_persistence_path' => config('zoho.token_persistence_path'),
-            //            'fileUploadUrl' => config('zoho.file_upload_url'),
+            'client_id'              => config($configKey . '.client_id'),
+            'client_secret'          => config($configKey . '.client_secret'),
+            'redirect_uri'           => config($configKey . '.redirect_uri'),
+            'currentUserEmail'       => config($configKey . '.current_user_email'),
+            'applicationLogFilePath' => config($configKey . '.application_log_file_path'),
+            'sandbox'                => config($configKey . '.sandbox'),
+            'apiBaseUrl'             => config($configKey . '.api_base_url'),
+            'apiVersion'             => config($configKey . '.api_version'),
+            'access_type'            => config($configKey . '.access_type'),
+            'accounts_url'           => config($configKey . '.accounts_url'),
+            'persistence_handler_class' => config($configKey . '.persistence_handler_class'),
+            'persistence_handler_class_name' => config($configKey . '.persistence_handler_class_name'),
+            'token_persistence_path' => config($configKey . '.token_persistence_path'),
+            //            'fileUploadUrl' => config($configKey . '.file_upload_url'),
         ], $options);
     }
 
